@@ -7,7 +7,7 @@ import ProfileButton from "./ProfileButton";
 const styles = {
   header: "w-[100vw] h-[72px] px-4",
   button:
-    "border-transparent-light h-[32px] w-[121px] rounded-[8px] border-[1px] bg-transparent text-[16px] text-white",
+    "border-transparent-light h-[32px] w-[121.6px] rounded-[8px] border-[1px] bg-transparent text-[16px] text-white",
   nav: "hidden lg:flex items-start justify-start",
   button1:
     "hidden lg:block mr-[10px] h-[40px] w-[112px] rounded-[32px] border-[2px] border-primary-light text-[14px] text-text-secondary max-sm:hidden",
