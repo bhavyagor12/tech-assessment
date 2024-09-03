@@ -25,9 +25,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider enableSystem>
           <Theme>
-            <div className="bg-dark flex flex-col min-h-screen">
+            <div className="bg-dark">
               <Header />
-              <main className="relative flex flex-col flex-1">{children}</main>
+              <main>{children}</main>
               <Footer />
             </div>
           </Theme>

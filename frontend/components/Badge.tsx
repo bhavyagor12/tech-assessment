@@ -9,9 +9,9 @@ type BadgeProps = {
 };
 
 const styles = {
-  container: (isActive:boolean) =>
+  container: (isActive: boolean) =>
     cx(
-      "w-[178px] h-[176px] mx-1 mb-4 flex flex-col justify-between rounded-[12px] border-[2px]",
+      "min-w-[178px] h-[176px] mx-1 mb-4 flex flex-col justify-between rounded-[12px] border-[2px]",
       isActive ? "border-states-success" : "border-none",
     ),
   header:
@@ -22,7 +22,7 @@ const styles = {
   textWhite: "text-xs text-white",
 };
 
-const Badge = ({ title, actions, isActive, value }:BadgeProps) => {
+const Badge = ({ title, actions, isActive, value }: BadgeProps) => {
   return (
     <div className={styles.container(isActive)}>
       <div className={styles.header}>

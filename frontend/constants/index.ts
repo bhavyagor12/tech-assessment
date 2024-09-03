@@ -52,3 +52,74 @@ export const ACTIVITIES = [
 ];
 
 export const ACTIVITY_HEADERS = ["Activities", "Points", "Date", "TXID"];
+
+export const ACTION_CARDS = [
+  {
+    description: "Provide at least $50 Liquidity to USDT/ETH",
+    status: true,
+  },
+  {
+    description: "Provide at least $50 Liquidity to LINK/ETH",
+    status: false,
+  },
+  {
+    description: "Provide at least $50 Liquidity to UNI/ETH",
+    status: false,
+  },
+];
+
+export const COMMUNITY_BADGES = [
+  {
+    title: "Liquidity Machine",
+    isActive: false,
+    value: "200 Points",
+  },
+  {
+    title: "Liquidity Machine",
+    isActive: false,
+    value: "200 Points",
+    actions: "Action 1", // Optional actions property added as an example
+  },
+  {
+    title: "Liquidity Machine",
+    isActive: false,
+    value: "200 Points",
+    actions: "Action 2",
+  },
+  {
+    title: "Liquidity Machine",
+    isActive: false,
+    value: "200 Points",
+    actions: "Action 3",
+  },
+  {
+    title: "Liquidity Machine",
+    isActive: false,
+    value: "200 Points",
+    actions: "Action 4",
+  },
+  {
+    title: "Liquidity Machine",
+    isActive: false,
+    value: "200 Points",
+    actions: "Action 5",
+  },
+  {
+    title: "liquidity machine",
+    isactive: false,
+    value: "200 points",
+    actions: "action 6",
+  },
+  {
+    title: "liquidity machine",
+    isactive: false,
+    value: "200 points",
+    actions: "action 6",
+  },
+  {
+    title: "liquidity machine",
+    isactive: false,
+    value: "200 points",
+    actions: "action 6",
+  },
+];

@@ -1,5 +1,4 @@
 interface ActionCardProps {
-  title: string;
   description: string;
   status?: boolean;
 }
@@ -20,16 +19,12 @@ const styles = {
     "flex-1 text-text-secondary text-[14px] font-normal leading-[20px]",
 };
 
-const ActionCard: React.FC<ActionCardProps> = ({
-  title,
-  description,
-  status,
-}) => {
+const ActionCard: React.FC<ActionCardProps> = ({ description, status }) => {
   return (
     <div className={styles.container}>
       <div className={styles.headingContainer}>
         <div className={styles.titleContainer}>
-          <div className={styles.titleText}>{title}</div>
+          <div className={styles.titleText}>Action</div>
         </div>
         {status && (
           <div
