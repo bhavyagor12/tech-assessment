@@ -2,7 +2,7 @@ import express from 'express';
 import { Pool } from 'pg';
 
 const app = express();
-const port = 3000;
+const port = 3838;
 
 const generateFakeTransactionHash = (): string => {
   return '0x' + Array.from({ length: 64 }, () =>

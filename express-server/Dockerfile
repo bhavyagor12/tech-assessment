@@ -20,4 +20,4 @@ RUN npm run build
 EXPOSE 3838
 
 # Define the command to run the app
-CMD ["npm", "start", "--", "--port", "3838"]
+CMD ["npm", "start"]
