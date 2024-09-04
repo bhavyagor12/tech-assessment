@@ -11,21 +11,30 @@ import { useHomePageData } from "./DataProvider";
 const styles = {
   container: "flex w-full h-full items-center justify-between px-4",
   buttonContainer: {
-    base: "flex items-center h-[309px] md:h-[244px] w-[47px] bg-dark-ele2 rounded-[32px] flex-shrink-0",
+    base: "flex items-center h-[309px] md:h-[244px] w-[47px] bg-dark-ele2 rounded-[32px]",
     button:
       "p-2 bg-gray-700 text-white rounded-full w-[35px] h-[35px] flex items-center justify-center md:w-[47.25px] md:h-[47.25px]",
   },
-  swiperContainer: "flex flex-grow items-center h-full overflow-hidden",
+  swiperContainer:
+    "flex flex-grow items-center justify-center h-full overflow-hidden",
   swiperSlide: (index: number, currentIndex: number) => ({
     transform:
       window.innerWidth >= 768
         ? currentIndex === index
-          ? "scale(1.0)"
-          : "scale(0.8)"
+          ? "scale(1.0)" // Current slide
+          : Math.abs(currentIndex - index) === 1
+            ? "scale(0.8)" // Immediately adjacent slides
+            : Math.abs(currentIndex - index) === 2
+              ? "scale(0.7)" // Two positions away
+              : "scale(0.6)" // Three or more positions away
         : "none",
+    padding: window.innerWidth >= 768 ? "0 0.5rem" : "0",
     transition: window.innerWidth >= 768 ? "transform 0.3s ease" : "none",
     opacity: currentIndex === index ? 1 : 0.5,
-    padding: window.innerWidth <= 768 ? "1rem" : "0",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100%",
   }),
 };
 
@@ -33,7 +42,7 @@ const SwiperComponent = () => {
   const sliderRef = useRef<SwiperRef | null>(null);
   const { activeBadge } = useHomePageData();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [slidesPerView, setSlidesPerView] = useState(5);
+  const [slidesPerView, setSlidesPerView] = useState(7);
 
   useEffect(() => {
     const updateSlidesPerView = () => {
@@ -41,7 +50,7 @@ const SwiperComponent = () => {
       if (width < 640) {
         setSlidesPerView(1);
       } else {
-        setSlidesPerView(5);
+        setSlidesPerView(7);
       }
     };
 
@@ -111,6 +120,7 @@ const SwiperComponent = () => {
                 value={badge.value}
                 isActive={badge.isActive as boolean}
                 details={badge.details as string}
+                hideContent={index !== currentIndex}
               />
             </SwiperSlide>
           ))}

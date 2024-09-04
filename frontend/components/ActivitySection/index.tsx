@@ -1,11 +1,11 @@
-"use client"
-import { ACTIVITIES, ACTIVITY_HEADERS } from "@/constants";
+"use client";
+import { ACTIVITY_HEADERS } from "@/constants";
 import { Table } from "@radix-ui/themes";
 import ActivityItem from "./ActivityItem";
 import { useHomePageData } from "../DataProvider";
 
 const styles = {
-  container: "text-text-secondary w-full",
+  container: "text-text-secondary w-full max-lg:p-6",
   header: "text-[16px] leading-4 font-medium mb-2",
   table: "w-full pt-[16px]",
   tableHeaderContainer:

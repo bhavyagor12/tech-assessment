@@ -33,7 +33,7 @@ export const makeTableData = (data: any) => {
       date: getDateMonthYear(transaction.block_timestamp),
       time: getTimestamp(transaction.block_timestamp),
       txid: transaction.transaction_hash,
-      extra: "https://randomLink.com",
+      link: "https://randomLink.com",
     }))
     : [];
 };

@@ -21,7 +21,7 @@ interface IDataProvider {
     date: string;
     time: string;
     txid: string;
-    extra: string;
+    link: string;
   }[];
 }
 

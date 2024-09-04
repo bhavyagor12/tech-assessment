@@ -1,54 +1,16 @@
+import badgeIcon from "../public/badges.svg";
+import discordOG from "../public/discord_og.svg";
+import incomeEngineer from "../public/Income_engineer.svg";
+import pudgyOG from "../public/Pudgy.svg";
+import pathfinderOG from "../public/Pathfinder.svg";
+import rookieBadge from "../public/Rookie.svg";
+
 export const TABS = [
   { title: "Dashboard", link: "/" },
   { title: "Tasks", link: "/" },
   { title: "Badges", link: "/" },
   { title: "Leaderboard", link: "/" },
   { title: "Connections", link: "/" },
-];
-
-export const ACTIVITIES = [
-  {
-    activity: "Transaction",
-    points: "+560",
-    date: "20.06.2024",
-    time: "14:10:35",
-    txid: "0xa12...1bac",
-  },
-  {
-    activity: "Transaction",
-    points: "+560",
-    date: "20.06.2024",
-    time: "13:47:22",
-    txid: "0xa12...1bac",
-  },
-  {
-    activity: "Bridged",
-    points: "+262",
-    date: "20.06.2024",
-    time: "13:40:35",
-    txid: "0xa12...1bac",
-  },
-  {
-    activity: "Transaction",
-    points: "+194",
-    date: "20.06.2024",
-    time: "13:47:22",
-    txid: "0xa12...1bac",
-  },
-  {
-    activity: "Bridged",
-    points: "+155",
-    date: "20.06.2024",
-    time: "14:10:35",
-    txid: "0xa12...1bac",
-  },
-  {
-    activity: "Transaction",
-    points: "142",
-    date: "20.06.2024",
-    time: "13:47:22",
-    txid: "0xa12...1bac",
-  },
 ];
 
 export const ACTIVITY_HEADERS = ["Activities", "Points", "Date", "TXID"];
@@ -68,13 +30,6 @@ export const ACTION_CARDS = [
   },
 ];
 
-import badgeIcon from "../public/badges.svg";
-import discordOG from "../public/discord_og.svg";
-import incomeEngineer from "../public/Income_engineer.svg";
-import pudgyOG from "../public/Pudgy.svg";
-import pathfinderOG from "../public/Pathfinder.svg";
-import rookieBadge from "../public/Rookie.svg";
-
 export const COMMUNITY_BADGES = [
   {
     title: "Discord OG",
@@ -82,24 +37,28 @@ export const COMMUNITY_BADGES = [
     icon: discordOG,
     value: "1.15x",
     isActive: true,
+    details: "Liquidity Provision to ETH/USDC",
   },
   {
     title: "Liquidity Machine",
     actions: "3 Actions",
     icon: badgeIcon,
     value: "1.15x",
+    details: "Liquidity Provision to ETH/USDC",
   },
   {
     title: "Income Engineer",
     actions: "3 Actions",
     icon: incomeEngineer,
     value: "2x",
+    details: "Liquidity Provision to ETH/USDC",
   },
   {
     title: "Pudgy OG",
     actions: null,
     icon: pudgyOG,
     value: "200 Points",
+    details: "Liquidity Provision to ETH/USDC",
   },
   {
     title: "Pathfinder OG",
@@ -113,29 +72,34 @@ export const COMMUNITY_BADGES = [
     actions: "1 Action",
     icon: rookieBadge,
     value: "150 Points",
+    details: "Liquidity Provision to ETH/USDC",
   },
   {
     title: "Liquidity Machine",
     actions: "3 Actions",
     icon: badgeIcon,
     value: "1.15x",
+    details: "Liquidity Provision to ETH/USDC",
   },
   {
     title: "Income Engineer",
     actions: "3 Actions",
     icon: incomeEngineer,
     value: "2x",
+    details: "Liquidity Provision to ETH/USDC",
   },
   {
     title: "Pathfinder OG",
     actions: null,
     icon: pathfinderOG,
     value: "1.15x",
+    details: "Liquidity Provision to ETH/USDC",
   },
   {
     title: "Rookie Badge",
     actions: "1 Action",
     icon: rookieBadge,
     value: "150 Points",
+    details: "Liquidity Provision to ETH/USDC",
   },
 ];

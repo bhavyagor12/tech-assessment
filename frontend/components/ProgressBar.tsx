@@ -5,20 +5,31 @@ interface ProgressBarProps {
   totalSteps: number;
 }
 
+const styles = {
+  bar: "h-4 transition-all flex-1",
+  filled: "bg-primary",
+  empty: "bg-dark-ele3",
+  container: "flex items-center gap-1 overflow-hidden",
+  rounded: {
+    borderRadius: "8px",
+    height: "4.35px",
+  },
+};
+
 const ProgressBar: React.FC<ProgressBarProps> = ({
   currentStep,
   totalSteps,
 }) => {
   return (
-    <div className="flex items-center gap-1 overflow-hidden">
+    <div className={styles.container}>
       {Array.from({ length: totalSteps }).map((_, index) => (
         <div
           key={index}
-          className={cx(
-            "h-4 transition-all flex-1",
-            index < currentStep ? "bg-primary" : "bg-dark-ele3",
-          )}
-          style={{ borderRadius: "8px", height: "4.35px" }}
+          className={cx(styles.bar, {
+            [styles.filled]: index < currentStep,
+            [styles.empty]: index >= currentStep,
+          })}
+          style={styles.rounded}
         />
       ))}
     </div>

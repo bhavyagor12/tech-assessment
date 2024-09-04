@@ -5,6 +5,7 @@ import Image from "next/image";
 import transactionIcon from "../../public/transaction.svg";
 import bridgeIcon from "../../public/bridged.svg";
 import { shortenTxid } from "@/utils";
+import Link from "next/link";
 
 interface ActivityItemProps {
   index: number;
@@ -14,6 +15,7 @@ interface ActivityItemProps {
     date: string;
     time: string;
     txid: string;
+    link: string
   };
 }
 
@@ -69,14 +71,23 @@ const ActivityItem: React.FC<ActivityItemProps> = ({ index, item }) => {
         }}
       >
         <p>{shortenTxid(item.txid)}</p>
-        <button className={styles.copyButton} style={{ borderRadius: "24px" }}>
+        <button
+          className={styles.copyButton}
+          style={{ borderRadius: "24px" }}
+          onClick={() => {
+            navigator.clipboard.writeText(item.txid);
+            alert("Copied to clipboard");
+          }}
+        >
           <p className="text-center text-text-secondary text-xs font-medium leading-[16.8px]">
             Copy
           </p>
         </button>
       </Table.Cell>
       <Table.Cell className={styles.cell}>
-        <ExternalLinkIcon className="text-text-secondary h-[16px] w-[16px]" />
+        <Link href={item.link}>
+          <ExternalLinkIcon className="text-text-secondary h-[16px] w-[16px]" />
+        </Link>
       </Table.Cell>
     </Table.Row>
   );
