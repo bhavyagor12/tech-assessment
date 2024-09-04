@@ -3,7 +3,7 @@ import { Table } from "@radix-ui/themes";
 import ActivityItem from "./ActivityItem";
 
 const styles = {
-  container: "text-text-secondary",
+  container: "text-text-secondary w-full",
   header: "text-[16px] leading-4 font-medium mb-2",
   table: "w-full pt-[16px]",
   tableHeaderContainer:

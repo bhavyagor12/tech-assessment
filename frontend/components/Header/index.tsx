@@ -20,11 +20,11 @@ const Header = () => {
       <Flex
         direction={"row"}
         align="center"
+        justify="between"
         gap="4"
         flexGrow={"1"}
-        width={"100%"}
+        width={"80%"}
         height={"100%"}
-        style={{ justifyContent: "space-around" }}
       >
         <Flex direction="row" align="center" gap="4">
           <button className={styles.button}>Logo</button>

@@ -2,12 +2,15 @@ import { Flex } from "@radix-ui/themes";
 import ActionCard from "./ActionCard";
 import { ACTION_CARDS } from "@/constants";
 import ProgressBar from "./ProgressBar";
+import SwiperComponent from "./Swiper";
 
 const HowToEarn = () => {
   return (
-    <Flex direction="column" gap="4">
-      <div className="flex flex-wrap items-center justify-center md:justify-between">
-        <p className="text-text-primary">
+    <Flex direction="column" width={"100%"} gap="4">
+      <h2 className="text-[16px] leading-4 font-medium mb-2 text-text-secondary">Badges</h2>
+      <SwiperComponent />
+      <div className="flex flex-wrap items-center justify-center md:justify-between ml-4">
+        <p className="text-text-primary text-[14px]">
           How to Earn:{" "}
           <span className="text-text-secondary">
             Complete the actions for the badge, no specific order needed.
@@ -22,7 +25,7 @@ const HowToEarn = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+      <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 ml-4">
         {ACTION_CARDS.map((action, index) => (
           <ActionCard
             key={index}
@@ -31,7 +34,9 @@ const HowToEarn = () => {
           />
         ))}
       </div>
-      <ProgressBar currentStep={1} totalSteps={3} />
+      <div className="ml-4">
+      <ProgressBar currentStep={1} totalSteps={3}  />
+      </div>
     </Flex>
   );
 };
