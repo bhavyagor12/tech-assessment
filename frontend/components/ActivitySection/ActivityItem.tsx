@@ -4,12 +4,13 @@ import cx from "classnames";
 import Image from "next/image";
 import transactionIcon from "../../public/transaction.svg";
 import bridgeIcon from "../../public/bridged.svg";
+import { shortenTxid } from "@/utils";
 
 interface ActivityItemProps {
   index: number;
   item: {
     activity: string;
-    points: number | string;
+    point: number | string;
     date: string;
     time: string;
     txid: string;
@@ -51,7 +52,7 @@ const ActivityItem: React.FC<ActivityItemProps> = ({ index, item }) => {
         </div>
       </Table.Cell>
       <Table.Cell className={styles.cellHighlightedText}>
-        <div className={styles.badge}>{item.points}</div>
+        <div className={styles.badge}>{item.point}</div>
       </Table.Cell>
       <Table.Cell className={styles.cellText}>
         {item.date}
@@ -67,7 +68,7 @@ const ActivityItem: React.FC<ActivityItemProps> = ({ index, item }) => {
           gap: "4px",
         }}
       >
-        <p>{item.txid}</p>
+        <p>{shortenTxid(item.txid)}</p>
         <button className={styles.copyButton} style={{ borderRadius: "24px" }}>
           <p className="text-center text-text-secondary text-xs font-medium leading-[16.8px]">
             Copy

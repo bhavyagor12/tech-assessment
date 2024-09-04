@@ -1,6 +1,8 @@
+"use client"
 import { ACTIVITIES, ACTIVITY_HEADERS } from "@/constants";
 import { Table } from "@radix-ui/themes";
 import ActivityItem from "./ActivityItem";
+import { useHomePageData } from "../DataProvider";
 
 const styles = {
   container: "text-text-secondary w-full",
@@ -27,6 +29,7 @@ const styles = {
 };
 
 const LastActivities: React.FC = () => {
+  const { tableData } = useHomePageData();
   return (
     <div className={styles.container}>
       <h2 className={styles.header}>Last Activities</h2>
@@ -45,7 +48,7 @@ const LastActivities: React.FC = () => {
           </Table.Row>
         </Table.Header>
         <Table.Body className={styles.tableBody}>
-          {ACTIVITIES.map((activity, index) => (
+          {tableData.map((activity, index) => (
             <ActivityItem key={index} index={index} item={activity} />
           ))}
         </Table.Body>

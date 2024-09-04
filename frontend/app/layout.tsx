@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
 import { ProvideBadgesAndActivities } from "@/components/DataProvider";
-
+import ApolloProviderWrapper from "@/utils/ApolloClient";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -25,17 +25,19 @@ export default function RootLayout({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <body className={inter.className}>
         <ThemeProvider enableSystem>
-          <Theme>
-            <div className="bg-dark min-h-screen">
-              <Header />
-              <ProvideBadgesAndActivities>
-                <main className="flex flex-col items-center flex-1">
-                  {children}
-                </main>
-              </ProvideBadgesAndActivities>
-              <Footer />
-            </div>
-          </Theme>
+          <ApolloProviderWrapper>
+            <Theme>
+              <div className="bg-dark min-h-screen">
+                <Header />
+                <ProvideBadgesAndActivities>
+                  <main className="flex flex-col items-center flex-1">
+                    {children}
+                  </main>
+                </ProvideBadgesAndActivities>
+                <Footer />
+              </div>
+            </Theme>
+          </ApolloProviderWrapper>
         </ThemeProvider>
       </body>
     </html>
