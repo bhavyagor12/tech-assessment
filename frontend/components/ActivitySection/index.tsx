@@ -10,7 +10,7 @@ const styles = {
     "w-full rounded-2xl bg-dark-ele2 border-primary border-2",
   tableRow: "w-full",
   tableColumnHeader:
-    "min-w-[266px] rounded-2xl h-[44px] text-start text-text-secondary",
+    "min-w-[266px] rounded-2xl h-[44px] text-start text-text-secondary text-[12px]",
   tableHeaderRow: "w-full bg-dark-ele3 text-text-secondary",
   tableBody: "",
   tableRowBorder: "border-b border-gray-700",

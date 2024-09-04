@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
+import { ProvideBadgesAndActivities } from "@/components/DataProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,11 @@ export default function RootLayout({
           <Theme>
             <div className="bg-dark min-h-screen">
               <Header />
-              <main className="flex flex-col items-center flex-1">{children}</main>
+              <ProvideBadgesAndActivities>
+                <main className="flex flex-col items-center flex-1">
+                  {children}
+                </main>
+              </ProvideBadgesAndActivities>
               <Footer />
             </div>
           </Theme>

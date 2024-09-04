@@ -68,58 +68,74 @@ export const ACTION_CARDS = [
   },
 ];
 
+import badgeIcon from "../public/badges.svg";
+import discordOG from "../public/discord_og.svg";
+import incomeEngineer from "../public/Income_engineer.svg";
+import pudgyOG from "../public/Pudgy.svg";
+import pathfinderOG from "../public/Pathfinder.svg";
+import rookieBadge from "../public/Rookie.svg";
+
 export const COMMUNITY_BADGES = [
   {
-    title: "Liquidity Machine",
-    isActive: false,
-    value: "200 Points",
+    title: "Discord OG",
+    actions: null,
+    icon: discordOG,
+    value: "1.15x",
+    isActive: true,
   },
   {
     title: "Liquidity Machine",
-    isActive: false,
+    actions: "3 Actions",
+    icon: badgeIcon,
+    value: "1.15x",
+  },
+  {
+    title: "Income Engineer",
+    actions: "3 Actions",
+    icon: incomeEngineer,
+    value: "2x",
+  },
+  {
+    title: "Pudgy OG",
+    actions: null,
+    icon: pudgyOG,
     value: "200 Points",
-    actions: "Action 1", // Optional actions property added as an example
+  },
+  {
+    title: "Pathfinder OG",
+    actions: null,
+    icon: pathfinderOG,
+    value: "1.15x",
+    details: "Liquidity Provision to ETH/USDC",
+  },
+  {
+    title: "Rookie Badge",
+    actions: "1 Action",
+    icon: rookieBadge,
+    value: "150 Points",
   },
   {
     title: "Liquidity Machine",
-    isActive: false,
-    value: "200 Points",
-    actions: "Action 2",
+    actions: "3 Actions",
+    icon: badgeIcon,
+    value: "1.15x",
   },
   {
-    title: "Liquidity Machine",
-    isActive: false,
-    value: "200 Points",
-    actions: "Action 3",
+    title: "Income Engineer",
+    actions: "3 Actions",
+    icon: incomeEngineer,
+    value: "2x",
   },
   {
-    title: "Liquidity Machine",
-    isActive: false,
-    value: "200 Points",
-    actions: "Action 4",
+    title: "Pathfinder OG",
+    actions: null,
+    icon: pathfinderOG,
+    value: "1.15x",
   },
   {
-    title: "Liquidity Machine",
-    isActive: false,
-    value: "200 Points",
-    actions: "Action 5",
-  },
-  {
-    title: "liquidity machine",
-    isactive: false,
-    value: "200 points",
-    actions: "action 6",
-  },
-  {
-    title: "liquidity machine",
-    isactive: false,
-    value: "200 points",
-    actions: "action 6",
-  },
-  {
-    title: "liquidity machine",
-    isactive: false,
-    value: "200 points",
-    actions: "action 6",
+    title: "Rookie Badge",
+    actions: "1 Action",
+    icon: rookieBadge,
+    value: "150 Points",
   },
 ];

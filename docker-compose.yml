@@ -51,7 +51,7 @@ services:
   express-server:
     build: ./express-server
     ports:
-      - "3000:3000"
+      - "3838:3838"
     environment:
       PG_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
     depends_on:

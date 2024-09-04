@@ -1,11 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
 import { COMMUNITY_BADGES } from "@/constants";
 import Badge from "./Badge";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
+import { StaticImageData } from "next/image";
+import { useHomePageData } from "./DataProvider";
 const styles = {
   container: "flex w-full h-full items-center justify-between px-4",
   buttonContainer: {
@@ -18,15 +20,18 @@ const styles = {
     transform:
       window.innerWidth >= 768
         ? currentIndex === index
-          ? "scale(1.1)"
-          : "scale(0.9)"
+          ? "scale(1.0)"
+          : "scale(0.8)"
         : "none",
     transition: window.innerWidth >= 768 ? "transform 0.3s ease" : "none",
     opacity: currentIndex === index ? 1 : 0.5,
+    padding: window.innerWidth <= 768 ? "1rem" : "0",
   }),
 };
 
 const SwiperComponent = () => {
+  const sliderRef = useRef<SwiperRef | null>(null);
+  const { activeBadge } = useHomePageData();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesPerView, setSlidesPerView] = useState(5);
 
@@ -48,6 +53,12 @@ const SwiperComponent = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (sliderRef.current && sliderRef.current?.swiper) {
+      sliderRef.current?.swiper.slideTo(activeBadge);
+    }
+    setCurrentIndex(activeBadge);
+  }, [activeBadge]);
   return (
     <div className={styles.container}>
       {/* Left Navigation Button */}
@@ -62,39 +73,44 @@ const SwiperComponent = () => {
 
       <div className={styles.swiperContainer}>
         <Swiper
+          ref={sliderRef}
           modules={[Navigation, Pagination, Autoplay]}
           slidesPerView={slidesPerView}
           centeredSlides={true}
           loop={false}
+          effect="coverflow"
           navigation={{
             nextEl: ".next-button",
             prevEl: ".prev-button",
           }}
-          autoplay={{
-            delay: 20000,
-            disableOnInteraction: false,
-          }}
-          initialSlide={4}
+          initialSlide={activeBadge}
           coverflowEffect={{
             rotate: 30,
             depth: 500,
             modifier: 2,
             slideShadows: false,
           }}
-          onSlideChange={(swiper) => setCurrentIndex(swiper.realIndex)}
+          onSlideChange={(swiper) => {
+            setCurrentIndex(swiper.realIndex);
+            swiper.slideTo(swiper.realIndex, 500, false);
+          }}
+          slideToClickedSlide={true}
           className="w-full h-full"
         >
           {COMMUNITY_BADGES.map((badge, index) => (
             <SwiperSlide
               key={index}
               style={styles.swiperSlide(index, currentIndex)}
+              onClick={() => setCurrentIndex(index)}
             >
               <Badge
                 key={index}
                 title={badge.title}
-                actions={badge.actions}
+                icon={badge.icon as StaticImageData}
+                actions={badge.actions as string}
                 value={badge.value}
                 isActive={badge.isActive as boolean}
+                details={badge.details as string}
               />
             </SwiperSlide>
           ))}
