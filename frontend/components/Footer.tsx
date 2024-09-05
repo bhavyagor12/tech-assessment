@@ -30,7 +30,7 @@ const FOOTER_NAV = ["Docs", "Blog", "Support", "Terms & Conditions"];
 
 const Footer = () => {
   return (
-    <div className={styles.container}>
+    <footer className={styles.container}>
       <div className={styles.innerContainer}>
         <div className={styles.content}>
           <div className={styles.logosContainer}>
@@ -80,7 +80,7 @@ const Footer = () => {
           <div className={styles.spacer}></div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

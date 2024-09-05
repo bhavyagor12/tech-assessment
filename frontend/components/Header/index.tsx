@@ -8,7 +8,7 @@ import { useState } from "react";
 import LogoButton from "../LogoButton";
 
 const styles = {
-  header: "flex items-center justify-center w-full h-[72px] max-lg:px-6",
+  header: "flex items-center justify-center w-full h-[72px] max-lg:px-6 sticky top-0 z-10 bg-dark-ele1",
   button:
     "border-transparent-light h-[32px] w-[121.6px] rounded-[8px] border-[1px] bg-transparent text-[16px] text-white",
   nav: "bg-transparent-dark max-lg:absolute max-lg:inset-x-0 max-lg:top-[90px] max-lg:hidden max-lg:rounded-[12px] max-lg:bg-dark-ele1 max-lg:p-4",
@@ -21,7 +21,6 @@ const styles = {
 };
 
 const Header = () => {
-  // State to toggle mobile navigation
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const handleHamburgerClick = () => {
@@ -64,8 +63,6 @@ const Header = () => {
           />
         </Flex>
       </Flex>
-
-      {/* Mobile navigation - only visible when isMobileNavOpen is true */}
       {isMobileNavOpen && (
         <div className={styles.mobileNav}>
           <div className="flex gap-4 flex-wrap items-center p-[8px]">
@@ -74,7 +71,7 @@ const Header = () => {
                 key={index}
                 title={tab.title}
                 link={tab.link}
-                isActive={2 === index} // assuming the active tab is the third one
+                isActive={2 === index} 
               />
             ))}
           </div>

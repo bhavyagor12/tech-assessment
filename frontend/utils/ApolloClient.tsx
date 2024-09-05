@@ -11,7 +11,7 @@ import { GraphQLWsLink } from "@apollo/client/link/subscriptions";
 import { createClient } from "graphql-ws";
 import { getMainDefinition } from "@apollo/client/utilities";
 
-const ADMIN_SECRET = "lgKHiV2PGXB2N/g1nOKqp6yAbbFcI5RlVZ+L467kjQM=";
+const ADMIN_SECRET = "lgKHiV2PGXB2N/g1nOKqp6yAbbFcI5RlVZ+L467kjQM=" ?? process.env.NEXT_PUBLIC_HASURA_GRAPHQL_ADMIN_SECRET;
 const HASURA_URL = "http://localhost:8080/v1/graphql";
 const HASURA_WS_URL = "ws://localhost:8080/v1/graphql";
 

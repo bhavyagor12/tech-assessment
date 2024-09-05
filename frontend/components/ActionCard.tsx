@@ -1,3 +1,5 @@
+import SuccessBadge from "./SuccessBadge";
+
 interface ActionCardProps {
   description: string;
   status?: boolean;
@@ -17,7 +19,7 @@ const styles = {
     "self-stretch px-[16px] flex justify-center items-center gap-[8px]",
   descriptionText:
     "flex-1 text-text-secondary text-[14px] font-normal leading-[20px]",
-  completed:"text-[#27D17F] text-[12px] font-medium leading-[16.8px]",
+  completed: "text-[#27D17F] text-[12px] font-medium leading-[16.8px]",
 };
 
 const ActionCard: React.FC<ActionCardProps> = ({ description, status }) => {
@@ -32,9 +34,7 @@ const ActionCard: React.FC<ActionCardProps> = ({ description, status }) => {
             className={styles.statusContainer}
             style={{ borderRadius: "24px" }}
           >
-            <div className={styles.completed}>
-              Completed
-            </div>
+            <SuccessBadge text="Completed" />
           </div>
         )}
       </div>

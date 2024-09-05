@@ -14,7 +14,7 @@ const styles = {
   badge:
     "mr-[5px] flex h-[24px] w-[138px] items-center justify-center rounded-[32px] text-[12px] max-md:grow",
   badgeCompleted: "bg-dark-ele3 text-text-secondary",
-  badgeTotal: "bg-primary-dark text-primary-light",
+  badgeTotal: "bg-[#006258] text-[#8AB7B2] opacity-2",
   actionCardsWrapper:
     "flex flex-wrap items-center justify-center md:justify-start gap-2 ml-4",
   progressWrapper: "ml-4",

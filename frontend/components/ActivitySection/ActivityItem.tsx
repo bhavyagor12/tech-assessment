@@ -6,16 +6,17 @@ import transactionIcon from "../../public/transaction.svg";
 import bridgeIcon from "../../public/bridged.svg";
 import { shortenTxid } from "@/utils";
 import Link from "next/link";
+import SuccessBadge from "../SuccessBadge";
 
 interface ActivityItemProps {
   index: number;
   item: {
     activity: string;
-    point: number | string;
+    point: string;
     date: string;
     time: string;
     txid: string;
-    link: string
+    link: string;
   };
 }
 
@@ -32,8 +33,6 @@ const styles = {
   cellFlexContainer: "flex items-center leading-4 gap-1",
   copyButton:
     "w-[47px] h-[24px] px-2 py-1 bg-[#16181A] rounded-full flex items-center justify-center gap-2",
-  badge:
-    "inline-flex h-[24px] items-center rounded-[24px] bg-states-success-ele1 px-2 text-[12px] text-states-success",
 };
 
 const ActivityItem: React.FC<ActivityItemProps> = ({ index, item }) => {
@@ -54,7 +53,7 @@ const ActivityItem: React.FC<ActivityItemProps> = ({ index, item }) => {
         </div>
       </Table.Cell>
       <Table.Cell className={styles.cellHighlightedText}>
-        <div className={styles.badge}>{item.point}</div>
+        <SuccessBadge text={item.point} />
       </Table.Cell>
       <Table.Cell className={styles.cellText}>
         {item.date}
