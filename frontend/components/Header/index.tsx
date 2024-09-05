@@ -1,8 +1,11 @@
+"use client";
 import { TABS } from "@/constants";
 import { Flex } from "@radix-ui/themes";
 import TabButton from "./TabButton";
 import ProfileButton from "./ProfileButton";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { useState } from "react";
+import LogoButton from "../LogoButton";
 
 const styles = {
   header: "flex items-center justify-center w-full h-[72px] max-lg:px-6",
@@ -13,9 +16,18 @@ const styles = {
     "hidden lg:block mr-[10px] h-[40px] w-[112px] rounded-[32px] border-[2px] border-primary-light text-[14px] text-text-secondary max-sm:hidden",
   span: "text-white text-[16px]",
   popoverContent: "flex items-start p-4 bg-black ",
+  mobileNav:
+    "absolute top-[84px] z-10 left-0 flex md:hidden w-full h-[104px] bg-dark-ele1 rounded-lg shadow-lg p-[8px] mb-4 rounded-[24px] px-6",
 };
 
 const Header = () => {
+  // State to toggle mobile navigation
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
+  const handleHamburgerClick = () => {
+    setIsMobileNavOpen(!isMobileNavOpen);
+  };
+
   return (
     <header className={styles.header}>
       <Flex
@@ -29,7 +41,7 @@ const Header = () => {
         style={{ maxWidth: "1250px" }}
       >
         <Flex direction="row" align="center" gap="4">
-          <button className={styles.button}>Logo</button>
+          <LogoButton />
           <nav className={styles.nav}>
             {TABS.map((tab, index) => (
               <TabButton
@@ -48,10 +60,28 @@ const Header = () => {
             width={24}
             height={24}
             className="text-text-secondary block md:hidden"
+            onClick={handleHamburgerClick}
           />
         </Flex>
       </Flex>
+
+      {/* Mobile navigation - only visible when isMobileNavOpen is true */}
+      {isMobileNavOpen && (
+        <div className={styles.mobileNav}>
+          <div className="flex gap-4 flex-wrap items-center p-[8px]">
+            {TABS.map((tab, index) => (
+              <TabButton
+                key={index}
+                title={tab.title}
+                link={tab.link}
+                isActive={2 === index} // assuming the active tab is the third one
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 };
+
 export default Header;

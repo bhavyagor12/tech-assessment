@@ -8,6 +8,8 @@ import Badge from "./Badge";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import { StaticImageData } from "next/image";
 import { useHomePageData } from "./DataProvider";
+import { Flex } from "@radix-ui/themes";
+
 const styles = {
   container: "flex w-full h-full items-center justify-between px-4",
   buttonContainer: {
@@ -69,8 +71,7 @@ const SwiperComponent = () => {
     setCurrentIndex(activeBadge);
   }, [activeBadge]);
   return (
-    <div className={styles.container}>
-      {/* Left Navigation Button */}
+    <Flex className={styles.container}>
       <div className={styles.buttonContainer.base}>
         <button
           className={styles.buttonContainer.button + " prev-button"}
@@ -126,8 +127,6 @@ const SwiperComponent = () => {
           ))}
         </Swiper>
       </div>
-
-      {/* Right Navigation Button */}
       <div className={styles.buttonContainer.base}>
         <button
           className={styles.buttonContainer.button + " next-button"}
@@ -136,7 +135,7 @@ const SwiperComponent = () => {
           <ChevronRightIcon width={24} height={24} />
         </button>
       </div>
-    </div>
+    </Flex>
   );
 };
 export default SwiperComponent;

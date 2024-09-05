@@ -6,6 +6,7 @@ import DiscordLogo from "../public/discord.svg";
 import TwitterLogo from "../public/twitter.svg";
 import InstagramLogo from "../public/instagram.svg";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import LogoButton from "./LogoButton";
 
 const styles = {
   container: "mt-[20px] flex justify-center bg-dark-ele2",
@@ -21,15 +22,20 @@ const styles = {
   linkList: "flex w-full max-lg:justify-between",
   logo: "grow-3 inline-block h-[35px] w-[211px]",
   spacer: "grow-1 w-[100px]",
+  logosContainer:
+    "grow-1 flex items-center justify-between max-sm:mb-6 max-sm:w-full",
 };
+
+const FOOTER_NAV = ["Docs", "Blog", "Support", "Terms & Conditions"];
+
 const Footer = () => {
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
         <div className={styles.content}>
-          <div className="grow-1 flex items-center justify-between max-sm:mb-6 max-sm:w-full">
+          <div className={styles.logosContainer}>
             <div className={styles.logoButton}>
-              <button className={styles.logoButton}>Logo</button>
+              <LogoButton />
             </div>
             <div className={styles.socialIcons}>
               <div className={styles.socialIcon}>
@@ -61,14 +67,13 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className={styles.footerLinks}>
+          <nav className={styles.footerLinks}>
             <ul className={styles.linkList}>
-              <TabButton title="Docs" link="/" isActive={false} />
-              <TabButton title="Blog" link="/" isActive={false} />
-              <TabButton title="Support" link="/" isActive={false} />
-              <TabButton title="Terms & Conditions" link="/" isActive={false} />
+              {FOOTER_NAV.map((link, index) => (
+                <TabButton title={link} link="/" isActive={false} key={index} />
+              ))}
             </ul>
-          </div>
+          </nav>
           <div className={styles.logo}>
             <Image src={AbsintheLogo} alt="Absinthe Logo" width={300} />
           </div>

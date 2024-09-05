@@ -1,5 +1,5 @@
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
-import { Table } from "@radix-ui/themes";
+import { Table, Text } from "@radix-ui/themes";
 import cx from "classnames";
 import Image from "next/image";
 import transactionIcon from "../../public/transaction.svg";
@@ -58,9 +58,9 @@ const ActivityItem: React.FC<ActivityItemProps> = ({ index, item }) => {
       </Table.Cell>
       <Table.Cell className={styles.cellText}>
         {item.date}
-        <div className="mx-[5px] inline-flex h-[24px] w-[65px] items-center justify-center rounded-[32px] bg-dark-ele3 text-[12px]">
+        <Text className="mx-[5px] inline-flex h-[24px] w-[65px] items-center justify-center rounded-[32px] bg-dark-ele3 text-[12px]">
           {item.time}
-        </div>
+        </Text>
       </Table.Cell>
       <Table.Cell
         className={styles.cellText}
@@ -70,7 +70,7 @@ const ActivityItem: React.FC<ActivityItemProps> = ({ index, item }) => {
           gap: "4px",
         }}
       >
-        <p>{shortenTxid(item.txid)}</p>
+        <Text>{shortenTxid(item.txid)}</Text>
         <button
           className={styles.copyButton}
           style={{ borderRadius: "24px" }}
@@ -79,9 +79,9 @@ const ActivityItem: React.FC<ActivityItemProps> = ({ index, item }) => {
             alert("Copied to clipboard");
           }}
         >
-          <p className="text-center text-text-secondary text-xs font-medium leading-[16.8px]">
+          <Text className="text-center text-text-secondary text-xs font-medium leading-[16.8px]">
             Copy
-          </p>
+          </Text>
         </button>
       </Table.Cell>
       <Table.Cell className={styles.cell}>

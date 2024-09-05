@@ -1,4 +1,4 @@
-import { Flex } from "@radix-ui/themes";
+import { Flex, Text } from "@radix-ui/themes";
 import ActionCard from "./ActionCard";
 import { ACTION_CARDS } from "@/constants";
 import ProgressBar from "./ProgressBar";
@@ -23,23 +23,23 @@ const styles = {
 const HowToEarn = () => {
   return (
     <Flex direction="column" width="100%" gap="4" className={styles.container}>
-      <h2 className={styles.title}>Badges</h2>
+      <Text className={styles.title}>Badges</Text>
       <SwiperComponent />
       <div className={styles.badgeWrapper}>
-        <p className={styles.description}>
+        <Text className={styles.description}>
           How to Earn:{" "}
           <span className={styles.highlight}>
             Complete the actions for the badge, no specific order needed.
           </span>
-        </p>
-        <div className="flex items-center gap-2 w-full pt-2 md:w-auto">
+        </Text>
+        <Flex gap="2" direction="row" align={"center"}  className="w-full pt-2 md:w-auto">
           <div className={`${styles.badge} ${styles.badgeCompleted}`}>
             1/3 Completed
           </div>
           <div className={`${styles.badge} ${styles.badgeTotal}`}>
             Total Earning: 3000
           </div>
-        </div>
+        </Flex>
       </div>
       <div className={styles.actionCardsWrapper}>
         {ACTION_CARDS.map((action, index) => (

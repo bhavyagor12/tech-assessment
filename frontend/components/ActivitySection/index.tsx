@@ -1,20 +1,18 @@
 "use client";
 import { ACTIVITY_HEADERS } from "@/constants";
 import { Table } from "@radix-ui/themes";
-import ActivityItem from "./ActivityItem";
-import { useHomePageData } from "../DataProvider";
+import ActivityBody from "./ActivityBody";
 
 const styles = {
-  container: "text-text-secondary w-full max-lg:p-6",
+  container: "text-text-secondary w-full max-lg:p-6 z-0",
   header: "text-[16px] leading-4 font-medium mb-2",
-  table: "w-full pt-[16px]",
+  table: "w-full pt-[16px] z-0",
   tableHeaderContainer:
     "w-full rounded-2xl bg-dark-ele2 border-primary border-2",
   tableRow: "w-full",
   tableColumnHeader:
     "min-w-[266px] rounded-2xl h-[44px] text-start text-text-secondary text-[12px]",
   tableHeaderRow: "w-full bg-dark-ele3 text-text-secondary",
-  tableBody: "",
   tableRowBorder: "border-b border-gray-700",
   tableRowEven: "text-text-primary border-t border-gray-700 bg-dark-ele2",
   tableRowOdd: "text-text-primary border-t border-gray-700 bg-dark-ele3",
@@ -29,7 +27,6 @@ const styles = {
 };
 
 const LastActivities: React.FC = () => {
-  const { tableData } = useHomePageData();
   return (
     <div className={styles.container}>
       <h2 className={styles.header}>Last Activities</h2>
@@ -47,11 +44,7 @@ const LastActivities: React.FC = () => {
             <Table.ColumnHeaderCell>{""}</Table.ColumnHeaderCell>
           </Table.Row>
         </Table.Header>
-        <Table.Body className={styles.tableBody}>
-          {tableData.map((activity, index) => (
-            <ActivityItem key={index} index={index} item={activity} />
-          ))}
-        </Table.Body>
+        <ActivityBody />
       </Table.Root>
     </div>
   );

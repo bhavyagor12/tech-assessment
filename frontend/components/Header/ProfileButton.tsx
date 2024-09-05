@@ -45,7 +45,7 @@ const ProfileButton = () => {
             height={18}
             className={styles.image}
           />
-          bongo.eth
+          bhavyagor.eth
         </button>
       </div>
       <div className={styles.dropdown(isOpen)}>
