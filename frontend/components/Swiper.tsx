@@ -27,8 +27,8 @@ const styles = {
             : Math.abs(currentIndex - index) === 2
               ? "scale(0.7)" // Two positions away
               : "scale(0.6)" // Three or more positions away
-        : "none",
-    padding: window.innerWidth >= 768 ? "0 0.5rem" : "0",
+        : "scale(1.25)",
+    padding: window.innerWidth >= 768 ? "0 0.5rem" : "40px",
     transition: window.innerWidth >= 768 ? "transform 0.3s ease" : "none",
     opacity: currentIndex === index ? 1 : 0.5,
     display: "flex",
@@ -76,7 +76,7 @@ const SwiperComponent = () => {
           className={styles.buttonContainer.button + " prev-button"}
           aria-label="Prev slide"
         >
-          <ChevronLeftIcon />
+          <ChevronLeftIcon width={24} height={24} />
         </button>
       </div>
 
@@ -133,7 +133,7 @@ const SwiperComponent = () => {
           className={styles.buttonContainer.button + " next-button"}
           aria-label="Next slide"
         >
-          <ChevronRightIcon />
+          <ChevronRightIcon width={24} height={24} />
         </button>
       </div>
     </div>
